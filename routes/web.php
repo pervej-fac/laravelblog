@@ -14,6 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::middleware('auth')->group(function () {
+    Route::get('dashboard','DashboardController@index')->name('dashboard');
+    Route::get('profile', 'UserController@profile')->name('user.profile');
+});
 
-Route::get('dashboard','DashboardController@index')->name('dashboard');
-Route::get('profile', 'UserController@profile')->name('user.profile');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
