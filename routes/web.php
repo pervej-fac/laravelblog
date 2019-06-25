@@ -17,8 +17,12 @@ Route::get('/', function () {
 Route::middleware('auth')->group(function () {
     Route::get('dashboard','DashboardController@index')->name('dashboard');
     Route::get('profile', 'UserController@profile')->name('user.profile');
+    Route::resource('category', 'CategoryController');
 });
-
+// Route::get('logout', function () {
+//     auth()->logout();
+//     return redirect()->route('user.login.form');
+// });
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
