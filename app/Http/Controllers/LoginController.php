@@ -17,6 +17,8 @@ class LoginController extends Controller
         ]);
         $credentials=$request->only('email','password');
         if(Auth::attempt($credentials)){
+        //    Set Custom Value in Session
+        //     session('username','Pervej')
             return redirect()->intended('dashboard');
         }
         $request->session()->flash('message', 'Invalid Email or Password');
