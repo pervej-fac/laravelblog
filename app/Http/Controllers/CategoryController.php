@@ -14,7 +14,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $data['title']="Category List";
+        $data['categories']=Category::orderBy('id','desc')->get();
+        $data['serial']=1;
+        return view('admin.category.index',$data);
     }
 
     /**
