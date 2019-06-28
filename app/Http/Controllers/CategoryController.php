@@ -68,7 +68,9 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data['title']="Edit category";
+        $data['category']=Category::findOrFail($id);
+        return view('admin.category.edit',$data);
     }
 
     /**
@@ -80,7 +82,17 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name'=>'required'
+        ]);
+
+        $data['name']=$request->name;
+        $data['details']=$request->details;
+
+        Category::findOrFail($id)->update($data);
+
+        session()->flash('message','Category updated successfully');
+        return redirect()->route('category.index');
     }
 
     /**
@@ -91,6 +103,8 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Category::findOrFail($id)->delete($id);
+        session()->flash('message','Category deleted successfully');
+        return redirect()->route('category.index');
     }
 }
