@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\Category;
+use App\Author;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -15,7 +17,7 @@ class PostController extends Controller
     public function index()
     {
         $data['title']="Post List";
-        $data['posts']=Post::orderBy('id','desc')->get();
+        $data['posts']=Post::with('category','author')->orderBy('id','desc')->get();
         $data['serial']=1;
         return view('admin.post.index',$data);
     }
@@ -28,6 +30,8 @@ class PostController extends Controller
     public function create()
     {
         $data['title']="Create new post";
+        $data['categories']=Category::orderBy('name')->get();
+        $data['authors']=Author::orderBy('name')->get();
         return view('admin.post.create',$data);
     }
 
@@ -40,6 +44,8 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'category_id'=>'required',
+            'author_id'=>'required',
             'title'=>'required',
             'details'=>'required',
             'status'=>'required'
@@ -71,6 +77,8 @@ class PostController extends Controller
     {
         $data['title']="Edit post";
         $data['post']=$post;
+        $data['categories']=Category::orderBy('name')->get();
+        $data['authors']=Author::orderBy('name')->get();
         return view('admin.post.edit',$data);
     }
 
@@ -84,6 +92,8 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         $request->validate([
+            'category_id'=>'required',
+            'author_id'=>'required',
             'title'=>'required',
             'details'=>'required',
             'status'=>'required'

@@ -11,9 +11,9 @@
                                     <thead>
                                         <tr>
                                             <th scope="col">#</th>
-                                            <th scope="col">ID</th>
                                             <th scope="col">Title</th>
-                                            <th scope="col">Details</th>
+                                            <th scope="col">Category</th>
+                                            <th scope="col">Author</th>
                                             <th scope="col">Status</th>
                                             <th scope="col">Action</th>
                                         </tr>
@@ -22,9 +22,9 @@
                                         @foreach ($posts as $post)
                                             <tr>
                                                 <td>{{ $serial++ }}</td>
-                                                <td>{{ $post->id }}</td>
                                                 <td>{{ $post->title }}</td>
-                                                <td>{{ $post->details }}</td>
+                                                <td>{{ $post->category->name }}</td>
+                                                <td>{{ $post->author->name }}</td>
                                                 <td>{{ $post->status }}</td>
                                                 <td>
                                                     <a href="{{ route('post.edit',$post->id) }}">Edit</a>

@@ -17,7 +17,11 @@ class CreatePostsTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->text('details');
+            $table->unsignedBigInteger('author_id');
+            $table->foreign('author_id')->references('id')->on('authors');
+            $table->unsignedBigInteger('category_id')->references('id')->on('categories');
             $table->string('status');
+            $table->text('file')->nullable();
             $table->timestamps();
         });
     }
