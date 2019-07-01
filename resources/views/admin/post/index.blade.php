@@ -15,6 +15,7 @@
                                             <th scope="col">Category</th>
                                             <th scope="col">Author</th>
                                             <th scope="col">Status</th>
+                                            <th scope="col">Image</th>
                                             <th scope="col">Action</th>
                                         </tr>
                                     </thead>
@@ -26,6 +27,9 @@
                                                 <td>{{ $post->category->name }}</td>
                                                 <td>{{ $post->author->name }}</td>
                                                 <td>{{ $post->status }}</td>
+                                                <td>
+                                                    <img src="{{ asset($post->file) }}" alt="" width="50px" hieght="500px">
+                                                </td>
                                                 <td>
                                                     <a href="{{ route('post.edit',$post->id) }}">Edit</a>
                                                     <form method="post" action="{{ route('post.destroy',$post->id) }}">

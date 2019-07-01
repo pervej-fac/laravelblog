@@ -67,6 +67,19 @@
 </div>
 
 <div class="form-group">
+        <label class="col-md-12">Image</label>
+        <div class="col-md-12">
+            @if (isset($post) && $post->file != null)
+                <img src="{{ asset($post->file) }}" alt="" width="100px" hieght="100px">
+            @endif
+            <input name="file" type="file" class="form-control form-control-line @error('file') is-invalid @enderror">
+        </div>
+        @error('file')
+            <div class="text-danger">{{ $message }}</div>
+        @enderror
+</div>
+
+<div class="form-group">
     @php
         if(old('status')){
             $status=old('status');
