@@ -61,7 +61,7 @@ class PostController extends Controller
         }
 
         //File Upload End
-        Post::create($post_r);
+        Post::create($post_r );
         session()->flash('message','Post created successfully');
         return redirect()->route('post.index');
     }
