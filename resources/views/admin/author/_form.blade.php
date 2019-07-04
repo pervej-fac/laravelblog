@@ -55,3 +55,16 @@
         <div class="text-danger">{{ $message }}</div>
     @enderror
 </div>
+<div class="form-group">
+        <label class="col-md-12">Image</label>
+        <div class="col-md-12">
+            @if (isset($author) && $author->image != null)
+                <img src="{{ asset($author->image) }}" alt="" width="100px" hieght="100px">
+            @endif
+            <input name="image" type="file" class="form-control form-control-line @error('image') is-invalid @enderror">
+        </div>
+        @error('image')
+            <div class="text-danger">{{ $message }}</div>
+        @enderror
+</div>
+

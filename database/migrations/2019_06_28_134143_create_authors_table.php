@@ -20,6 +20,7 @@ class CreateAuthorsTable extends Migration
             $table->string('phone',20);
             $table->text('address');
             $table->enum('gender',['male','female','others']);
+            //$table->text('image')->nullable();
             $table->timestamps();
         });
     }

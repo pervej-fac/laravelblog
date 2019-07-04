@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Author;
 use Illuminate\Http\Request;
+use File;
 
 class AuthorController extends Controller
 {
@@ -52,8 +53,18 @@ class AuthorController extends Controller
         // $data['address']=$request->address;
         // $data['gender']=$request->gender;
            // $data=$request->except('_token');
-        Author::create($request->except('_token'));
-        session()->flash('message','Author updated successfully');
+        $author=$request->except('_token');
+         //File Upload Start
+         if ($request->hasFile('image')) {
+            $file=$request->file('image');
+            $file->move('images/author/', $file->getClientOriginalName());
+            $author['image']='images/author/'.$file->getClientOriginalName();
+            //dd($post['file']);
+        }
+
+        //File Upload End
+        Author::create($author);
+        session()->flash('message','Author created successfully');
         return redirect()->route('author.index');
     }
 
@@ -102,9 +113,17 @@ class AuthorController extends Controller
         // $data['phone']=$request->phone;
         // $data['address']=$request->address;
         // $data['gender']=$request->gender;
-
-        $author->update($request->except('_token'));
-        session()->flash('message','Author created successfully');
+        $author_req=$request->except('_token');
+         //File Upload Start
+         if ($request->hasFile('image')) {
+            $file=$request->file('image');
+            $file->move('images/author/', $file->getClientOriginalName());
+            File::delete($author->image);
+            $author_req['image']='images/author/'.$file->getClientOriginalName();
+            //dd($post['file']);
+        }
+        $author->update($author_req);
+        session()->flash('message','Author updated successfully');
         return redirect()->route('author.index');
     }
 
@@ -116,6 +135,7 @@ class AuthorController extends Controller
      */
     public function destroy(Author $author)
     {
+        File::delete($author->image);
         $author->delete();
         session()->flash('message','Author deleted successfully');
         return redirect()->route('author.index');
