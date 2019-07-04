@@ -99,11 +99,12 @@
             <section class="popular-post pb-10">
                 <!-- Section title -->
                 <div class="section-title">
-                    <h2>Popular Posts</h2>
+                    <h2>Recent Posts</h2>
                 </div>
                 <!-- End of Section title -->
 
                 <div class="post-blog-list">
+                   @foreach ($recent_posts as $post)
                     <!-- Post -->
                     <div class="post-default post-has-right-thumb">
                         <div class="d-flex flex-wrap">
@@ -117,7 +118,7 @@
                                 <div class="cats"><a href="category-result.html">Love</a></div>
                                 <!-- Title -->
                                 <div class="title">
-                                    <h2><a href="blog-details.html">A Funny Thing That Happens In Relationships</a></h2>
+                                    <h2><a href="#">{{ $post->title }}</a></h2>
                                 </div>
                                 <!-- Post Meta -->
                                 <ul class="nav meta align-items-center">
@@ -140,80 +141,7 @@
                         </div>
                     </div>
                     <!-- End of Post -->
-
-                    <!-- Post -->
-                    <div class="post-default post-has-right-thumb">
-                        <div class="d-flex flex-wrap">
-                            <div class="post-thumb align-self-stretch order-md-2">
-                                <a href="blog-details.html">
-                                <div data-bg-img="assets/images/blog/2.jpg') }}"></div>
-                                </a>
-                            </div>
-                            <div class="post-data order-md-1">
-                                <!-- Category -->
-                                <div class="cats"><a href="category-result.html">Fashion</a></div>
-                                <!-- Title -->
-                                <div class="title">
-                                    <h2><a href="blog-details.html">The One Thing I Do When Fashion Come Over</a></h2>
-                                </div>
-                                <!-- Post Meta -->
-                                <ul class="nav meta align-items-center">
-                                    <li class="meta-author">
-                                        <img src="{{ asset('theme-front/images/blog/author.jpg') }}" alt="" class="img-fluid">
-                                        <a href="#">Alex Garry</a>
-                                    </li>
-                                    <li class="meta-date"><a href="#">2 Feb 2019</a></li>
-                                    <li class="meta-comments"><a href="#"><i class="fa fa-comment"></i> 2</a></li>
-                                </ul>
-                                <!-- Post Desc -->
-                                <div class="desc">
-                                    <p>
-                                        Integer at faucibus urna. Nullam condimentum leo id elit sagittis auctor. Curabitur elementum nunc...
-                                    </p>
-                                </div>
-                                <!-- Read More Button -->
-                                <a href="blog-details.html" class="btn btn-primary">View More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End of Post -->
-
-                    <!-- Post -->
-                    <div class="post-default post-has-right-thumb">
-                        <div class="d-flex flex-wrap">
-                            <div class="post-thumb align-self-stretch order-md-2">
-                                <a href="blog-details.html">
-                                <div data-bg-img="assets/images/blog/3.jpg') }}"></div>
-                                </a>
-                            </div>
-                            <div class="post-data order-md-1">
-                                <!-- Category -->
-                                <div class="cats"><a href="category-result.html">Travel</a></div>
-                                <!-- Title -->
-                                <div class="title">
-                                    <h2><a href="blog-details.html">Summer Adventure Essentials From Backcountry</a></h2>
-                                </div>
-                                <!-- Post Meta -->
-                                <ul class="nav meta align-items-center">
-                                    <li class="meta-author">
-                                        <img src="{{ asset('theme-front/images/blog/author.jpg') }}" alt="" class="img-fluid">
-                                        <a href="#">Alex Garry</a>
-                                    </li>
-                                    <li class="meta-date"><a href="#">2 Feb 2019</a></li>
-                                    <li class="meta-comments"><a href="#"><i class="fa fa-comment"></i> 2</a></li>
-                                </ul>
-                                <!-- Post Desc -->
-                                <div class="desc">
-                                    <p>
-                                        Integer at faucibus urna. Nullam condimentum leo id elit sagittis auctor. Curabitur elementum nunc...
-                                    </p>
-                                </div>
-                                <!-- Read More Button -->
-                                <a href="blog-details.html" class="btn btn-primary">View More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End of Post -->
+                   @endforeach
                 </div>
             </section>
             <!-- End of Popular Post  -->

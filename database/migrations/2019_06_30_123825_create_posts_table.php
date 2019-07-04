@@ -22,6 +22,9 @@ class CreatePostsTable extends Migration
             $table->unsignedBigInteger('category_id')->references('id')->on('categories');
             $table->string('status');
             $table->text('file')->nullable();
+            // $table->dateTime('published_at')->nullable();
+            // $table->tinyInteger('is_featured')->default(0);
+            // $table->bigInteger('total_view')->default(0);
             $table->timestamps();
         });
     }
