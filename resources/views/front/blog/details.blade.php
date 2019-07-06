@@ -50,7 +50,7 @@
                     <div class="author-desc">
                         <h5> <a href="#"> {{ $blog_details->author->name }} </a> </h5>
                         <div class="description">
-                            {{ $blog_details->author->address }}
+                            {{ $blog_details->author->details }}
                         </div>
                         <div class="social-icons">
                             <a href="#"><i class="fa fa-facebook"></i></a>
@@ -88,7 +88,7 @@
                         </div>
                         <!-- Author Text -->
                         <div class="author-text text-center">
-                            {{ $blog_details->author->address }}
+                            {{ $blog_details->author->details }}
                         </div>
                     </div>
                     <!-- End of Widget Content -->

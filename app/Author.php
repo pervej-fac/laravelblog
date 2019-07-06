@@ -12,6 +12,7 @@ class Author extends Model
         'phone',
         'address',
         'gender',
-        'image'
+        'image',
+        'details'
     ];
 }
