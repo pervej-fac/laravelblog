@@ -2,7 +2,7 @@
 @section('content')
     <!-- Section Title -->
     <div class="section-title text-center">
-        <h2>Trending Post</h2>
+        <h2>Featured Post</h2>
     </div>
     <!-- Section Title -->
 
