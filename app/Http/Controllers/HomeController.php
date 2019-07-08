@@ -9,6 +9,8 @@ class HomeController extends Controller
 {
     public function index(){
         $data['recent_posts']=Post::with('category','author')->where('status','published')->limit(3)->latest()->get();
+        $data['featured_posts']=Post::with('category','author')->where('is_featured',1)->where('status','published')->limit(3)->latest()->get();
+        //dd($data['featured_posts'][0]->file);
         return view('layouts.front.home',$data);
     }
     public function blog_details($id)
