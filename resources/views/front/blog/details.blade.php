@@ -106,18 +106,7 @@
                     <!-- Widget Content -->
                     <div class="widget-content">
                         @foreach ($featured_posts as $post)
-                            <!-- Single Post -->
-                            <div class="featured-post">
-                                <!-- Post Thumbnail -->
-                                <a href="{{ route('blog.details',$post->id) }}">
-                                    <img src="{{ asset($post->file) }}" alt="" class="img-fluid">
-                                </a>
-                                <!-- Post Title -->
-                                <div class="featured-post-title">
-                                    <h6> <a href="{{ route('blog.details',$post->id) }}">{{ $post->title }}</a> </h6>
-                                </div>
-                            </div>
-                            <!-- End of Single Post -->
+                            @include('front.blog._right_featured')
                         @endforeach
 
                     </div>
@@ -137,50 +126,6 @@
                 </div>
                 <!-- End of Ad Widget -->
 
-                <!-- Instagram Widget -->
-                <div class="widget widget-instagram">
-                    <!-- Widget Title -->
-                    <h4 class="widget-title">
-                        Instagram Post
-                    </h4>
-                    <!-- End of Widget Title -->
-
-                    <!-- Widget Content -->
-                    <div class="widget-content">
-                        <ul class="insta-gallery">
-                            <li>
-                                <!-- Instagram Post Image -->
-                                <a href="#"><img src="assets/images/sidebar/instagram/1.jpg" alt="" class="img-fluid"></a>
-                            </li>
-                            <li>
-                                <!-- Instagram Post Image -->
-                                <a href="#"><img src="assets/images/sidebar/instagram/2.jpg" alt="" class="img-fluid"></a>
-                            </li>
-                            <li>
-                                <!-- Instagram Post Image -->
-                                <a href="#"><img src="assets/images/sidebar/instagram/3.jpg" alt="" class="img-fluid"></a>
-                            </li>
-                            <li>
-                                <!-- Instagram Post Image -->
-                                <a href="#"><img src="assets/images/sidebar/instagram/4.jpg" alt="" class="img-fluid"></a>
-                            </li>
-                            <li>
-                                <!-- Instagram Post Image -->
-                                <a href="#"><img src="assets/images/sidebar/instagram/5.jpg" alt="" class="img-fluid"></a>
-                            </li>
-                            <li>
-                                <!-- Instagram Post Image -->
-                                <a href="#"><img src="assets/images/sidebar/instagram/6.jpg" alt="" class="img-fluid"></a>
-                            </li>
-                        </ul>
-                        <!-- Instagram Follow Button -->
-                        <a href="#" class="btn btn-block btn-instagram">
-                            <i class="fa fa-instagram"></i> Follow Me
-                        </a>
-                    </div>
-                    <!-- End of Widget Content -->
-                </div>
-                <!-- End of Instagram Widget -->
 
                 <!-- Newsletter Widget -->
                 <div class="widget widget-newsletter">
@@ -205,19 +150,7 @@
                     <!-- Widget Content -->
                     <div class="widget-content">
                         @foreach ($recent_posts as $post)
-                            <!-- Single Post -->
-                            <div class="wrp-cover">
-                                <!-- Post Thumbnail -->
-                                <div class="post-thumb">
-                                    <a href="{{ route('blog.details',$post->id) }}">
-                                        <img src="{{ asset($post->file) }}" alt="" class="img-fluid">
-                                    </a>
-                                </div>
-                                <!-- Post Title -->
-                                <div class="post-title">
-                                    <a href="{{ route('blog.details',$post->id) }}">{{ $post->title }}</a>
-                                </div>
-                            </div>
+                           @include('front.blog._right_recent')
                         @endforeach
 
                     </div>
